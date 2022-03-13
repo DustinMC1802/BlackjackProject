@@ -5,17 +5,20 @@ import com.skilldistillery.cards.common.Deck;
 
 public class Dealer {
 	
-	Deck deck = new Deck();
+	private Deck deck = new Deck();
 	
 	// Shuffle Deck
-	public void shuffle() {
+	public void shuffle(Deck deck) {
 		deck.shuffle();
-		System.out.println("shuffling the deck");
+		System.out.println("The dealer is shuffling the deck");
 	}
 	// Deal Cards (dealCard)
 	public Card deal() {
 		return deck.dealCard();
 	}
+	
+		
+	
 	
 	// Wait for Player to finish their Hand
 	

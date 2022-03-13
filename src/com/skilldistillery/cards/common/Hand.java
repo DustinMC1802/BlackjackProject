@@ -9,6 +9,7 @@ public abstract class Hand {
 	private List<Card> cards = new ArrayList<>();
 	
 	public Hand() {
+		
 		this.cards = new ArrayList<>();
 	}
 	
@@ -17,5 +18,8 @@ public abstract class Hand {
 		cards.add(i);
 	}
 	// Display the cards in the hand
+	//public void displayCards(Card i) {
+	//	System.out.println(cards.toString());
+	//}
 	
 }
