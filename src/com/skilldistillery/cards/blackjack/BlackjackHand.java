@@ -13,7 +13,7 @@ public class BlackjackHand extends Hand {
 
 	//Add the total of the cards in the hand
 	@Override
-	public int calculateHandValue(Card cardsInHand) {
+	public int calculateHandValue() {
 		int handValue = 0;
 		for (Card card : this.cardsInHand) {
 			handValue += card.getValue();

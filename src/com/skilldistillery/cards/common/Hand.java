@@ -13,12 +13,11 @@ public abstract class Hand {
 	}
 
 	public void addCard(Card dealtCard) {
-
 		cardsInHand.add(dealtCard);
 	}
 
 	// Abstract method to get the total value of the cards
-	public abstract int calculateHandValue(Card cardsInHand);
+	public abstract int calculateHandValue();
 
 	// Clear the hand
 	public void clear() {

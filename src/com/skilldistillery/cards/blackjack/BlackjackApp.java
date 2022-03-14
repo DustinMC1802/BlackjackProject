@@ -1,17 +1,17 @@
 package com.skilldistillery.cards.blackjack;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 import java.util.Scanner;
 
-import com.skilldistillery.cards.common.Card;
-import com.skilldistillery.cards.common.Hand;
+//import com.skilldistillery.cards.common.Card;
+//import com.skilldistillery.cards.common.Hand;
 
 public class BlackjackApp {
 
 	private Dealer dealer = new Dealer();
 	private Player player = new Player();
-	private BlackjackHand playerHand = new BlackjackHand();
+//	private BlackjackHand playerHand = new BlackjackHand();
 
 
 	public static void main(String[] args) {
@@ -25,12 +25,12 @@ public class BlackjackApp {
 		app.checkPlayerForBlackJack();
 		app.checkDealerForBlackJack();
 		app.playerDecide(sc);
-		app.dealerDecision(i, dealtCard);
-//		app.checkPlayerForBust();
-//		app.checkDealerForBust();
+		app.dealerDecision();
+		app.determineWinner();
 
 		sc.close();
 	}
+
 
 	private void shuffleDeck() {
 		this.dealer.shuffle(dealer.getDeck());
@@ -56,36 +56,37 @@ public class BlackjackApp {
 		}
 	}
 
-//	private void checkPlayerForBust() {
-//		if (this.player.checkForBust()) {
-//			System.out.println("You busted! Better luck next time ");
-//		}
-//	}
-//
-//	private void checkDealerForBust() {
-//		if (this.dealer.checkForBlackjack()) {
-//			System.out.println("The Dealer busted!! You win!!");
-//		}
-//	}
-
 	private void playerDecide(Scanner sc) {
-		String answer = this.player.hitOrStand(sc, dealer.getDeck().dealCard());
+		String answer = this.player.hitOrStay(sc, dealer.getDeck().dealCard());
 
 		while (answer.equals("H")) {
 			player.receiveCard(dealer.getDeck().dealCard());;
-			answer = this.player.hitOrStand(sc, dealer.getDeck().dealCard());
+			answer = this.player.hitOrStay(sc, dealer.getDeck().dealCard());
 		}
-//		while (answer.equals("S")) {
-//			break;
-//		}
 
 	}
 	
-	private void dealerDecision(Card i, Card dealtCard) {
-		dealer.dealerDecider(dealer.getDeck().dealCard(), dealer.getDeck().dealCard());
+	private void dealerDecision() {
+		dealer.dealerDecider(dealer.getDeck().dealCard());
+		
 		}
 
 			
+	private void determineWinner() {
+		if (dealer.getHandTotal() > player.getHandTotal() && dealer.getHandTotal() <= 21) {
+			System.out.println("The dealer's total is " + dealer.getHandTotal());
+			System.out.println("Your total is " + player.getHandTotal());
+			System.out.println("Dealer wins. Better luck next time");
+		} else if (dealer.getHandTotal() < player.getHandTotal() && player.getHandTotal() <= 21) {
+			System.out.println("The dealer's total is " + dealer.getHandTotal());
+			System.out.println("Your total is " + player.getHandTotal());
+			System.out.println("You won!!");
+		} else if (dealer.getHandTotal() == player.getHandTotal()){
+			System.out.println("The dealer's total is " + dealer.getHandTotal());
+			System.out.println("Your total is " + player.getHandTotal());
+			System.out.println("It's a push");
+		}
+	}
 		
 		
 	
