@@ -14,17 +14,10 @@ public class Player {
 
 	}
 
-	public void dealCard(Card dealtCard) {
+	public void receiveCard(Card dealtCard) {
 		System.out.println("You have been dealt: ");
 		playerHand.addCard(dealtCard);
 		System.out.println(dealtCard);
-//		if (playerHand.blackjack()) {
-//			System.out.println("You got a Blackjack!!");
-//			System.out.println("Let's see what the Dealer gets...");
-//		} else if (playerHand.bust()) {
-//			System.out.println("You busted! Better luck next time ");
-//		} else {
-//		}
 	}
 
 	// Decide to hit or stay

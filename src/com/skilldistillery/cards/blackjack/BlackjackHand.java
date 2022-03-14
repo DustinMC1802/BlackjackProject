@@ -34,7 +34,7 @@ public class BlackjackHand extends Hand {
 	// Determine if blackjack
 	public boolean blackjack() {
 		boolean blackjackVar;
-		if (total >= 21) {
+		if (total == 21) {
 			blackjackVar = true;
 		} else {
 			blackjackVar = false;

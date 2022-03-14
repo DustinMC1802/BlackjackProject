@@ -5,12 +5,13 @@ import com.skilldistillery.cards.common.Deck;
 
 public class Dealer extends Player{
 
-	//private Deck deck = new Deck();
+	private Deck deck = new Deck();
 
 	private BlackjackHand dealerHand;
 	
 	public Dealer() {
 		dealerHand = new BlackjackHand();
+		setDeck(new Deck());
 	}
 	// Shuffle Deck
 	public void shuffle(Deck deck) {
@@ -19,7 +20,7 @@ public class Dealer extends Player{
 		System.out.println("");
 	}
 
-	// Deal Cards (dealCard)
+	// Deals themselves Cards
 	public void initialDeal(Card dealtCard) {
 		System.out.println("");
 		System.out.println("The Dealer deals themself: ");
@@ -29,7 +30,7 @@ public class Dealer extends Player{
 	}
 	
 	@Override
-	public void dealCard(Card dealtCard) {
+	public void receiveCard(Card dealtCard) {
 		System.out.println("");
 		System.out.println("The Dealer deals themself: ");
 		dealerHand.addCard(dealtCard);
@@ -41,6 +42,14 @@ public class Dealer extends Player{
 	// Must hit if card sum is < 17
 	public void hitOrStay(Card i) {
 
+	}
+	
+	//Getters and Setters for the Deck
+	public Deck getDeck() {
+		return deck;
+	}
+	public void setDeck(Deck deck) {
+		this.deck = deck;
 	}
 
 	//
