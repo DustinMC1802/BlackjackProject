@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Hand {
 
-	// The hand will receive cards from the Dealer and store them in a list
+	// The hand will receive cards from the Deck and store them in a list
 	public List<Card> cardsInHand = new ArrayList<>();
 	
 	public Hand() {
@@ -18,13 +18,17 @@ public abstract class Hand {
 		cardsInHand.add(i);
 	}
 	
+	// Abstract method to get the total value of the cards
 	public abstract int getHandValue(Card cardsInHand);
 	
-	
+	// Clear the hand
 	public void clear() {
-		
+		for (Card card : cardsInHand) {
+			cardsInHand.remove(card);
+		}
 	}
 
+	// Display the cards in the hand
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -33,11 +37,5 @@ public abstract class Hand {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
-	// Display the cards in the hand
-	//public void displayCards(Card i) {
-	//	System.out.println(cards.toString());
-	//}
 	
 }

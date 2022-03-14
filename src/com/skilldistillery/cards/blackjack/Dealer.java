@@ -18,14 +18,29 @@ public class Dealer {
 		return deck.dealCard();
 	}
 	
-		
-	
-	
-	// Wait for Player to finish their Hand
-	
 	// Finish Dealer's Hand
+private BlackjackHand dealerHand;
 	
-		// Must hit if card sum is < 17
+	public Dealer() {
+		dealerHand = new BlackjackHand();
+	
+	}
+	
+	public void initialDeal(Card i,Card j) {
+		System.out.println("");
+		System.out.println("The Dealer deals themself: ");
+			dealerHand.addCard(i);
+			dealerHand.addCard(j);
+			System.out.println("Card = face down");
+			System.out.println(j);
+	}
+	
+	// Must hit if card sum is < 17
+	public void hitOrStay(Card i) {
+		
+		
+	}
+	
 	
 		// 
 

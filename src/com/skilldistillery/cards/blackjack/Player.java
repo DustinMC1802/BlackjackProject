@@ -14,12 +14,6 @@ public class Player {
 	
 	}
 	
-//	public void run() {
-//		Card card = playerHand.addCard(null);;
-//		initialDeal(Card, Card);
-//		hitOrStay(Card);
-//	}
-	
 	public void initialDeal(Card i,Card j) {
 		System.out.println("You have been dealt: ");
 			playerHand.addCard(i);
@@ -27,15 +21,9 @@ public class Player {
 			System.out.println(i);
 			System.out.println(j);
 	}
-//	public void hit(Card i,) {
-//		System.out.println("You have been dealt: ");
-//		playerHand.addCard(i);
-//		System.out.println(i);
-//	}
 	
 	// Decide to hit or stay
-	public void hitOrStay(Card i) {
-		Scanner sc = new Scanner(System.in);
+	public void hitOrStay(Scanner sc, Card i) {
 		String hitImput;
 		System.out.println("Would you like to hit or stay?");
 		System.out.println("Press \"H\" to hit or \"S\" to Stay");
@@ -48,7 +36,6 @@ public class Player {
 			System.out.print(playerHand.toString());
 		}
 		
-		sc.close();
 	}
 
 }
