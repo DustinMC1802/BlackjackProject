@@ -9,8 +9,10 @@ public class Dealer extends Player{
 
 	private BlackjackHand dealerHand;
 	
+//	public Dealer dealer = new Dealer();
+	
 	public Dealer() {
-		dealerHand = new BlackjackHand();
+		this.dealerHand = new BlackjackHand();
 		setDeck(new Deck());
 	}
 	// Shuffle Deck
@@ -24,7 +26,7 @@ public class Dealer extends Player{
 	public void initialDeal(Card dealtCard) {
 		System.out.println("");
 		System.out.println("The Dealer deals themself: ");
-		dealerHand.addCard(dealtCard);
+		this.dealerHand.addCard(dealtCard);
 		System.out.println("Card = face down");
 		System.out.println("");
 	}
@@ -33,14 +35,17 @@ public class Dealer extends Player{
 	public void receiveCard(Card dealtCard) {
 		System.out.println("");
 		System.out.println("The Dealer deals themself: ");
-		dealerHand.addCard(dealtCard);
+		this.dealerHand.addCard(dealtCard);
 		System.out.println(dealtCard);
 		System.out.println("");
 	}
 
 
 	// Must hit if card sum is < 17
-	public void hitOrStay(Card i) {
+	public void hitOrStand(Card i) {
+		if(this.dealerHand.getHandValue(i) >= 17) {
+			
+		}
 
 	}
 	

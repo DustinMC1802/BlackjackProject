@@ -9,7 +9,6 @@ public abstract class Hand {
 	protected List<Card> cardsInHand;
 
 	public Hand() {
-
 		this.cardsInHand = new ArrayList<>();
 	}
 

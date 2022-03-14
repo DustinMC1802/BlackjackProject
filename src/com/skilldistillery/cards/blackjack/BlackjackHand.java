@@ -6,24 +6,33 @@ import com.skilldistillery.cards.common.Hand;
 public class BlackjackHand extends Hand {
 
 	public BlackjackHand() {
-
 	}
 
-	int total = 0;
+	private int handTotal = 0;
+	public boolean bust = false;
 	//Add the total of the cards in the hand
 	@Override
 	public int getHandValue(Card cardsInHand) {
-		
+		int handAmount = getHandTotal();
 		for (Card card : this.cardsInHand) {
-			total += card.getValue();
+			handAmount += card.getValue();
 		}
-		return total;
+		return handAmount;
+		
+	}
+
+	public int getHandTotal() {
+		return handTotal;
+	}
+
+	public void setHandTotal(int handTotal) {
+		this.handTotal = handTotal;
 	}
 
 	// Determine if bust
 	public boolean bust() {
 		boolean bustVar;
-		if (total >= 21) {
+		if (handTotal >= 21) {
 			bustVar = true;
 		} else {
 			bustVar = false;
@@ -34,7 +43,7 @@ public class BlackjackHand extends Hand {
 	// Determine if blackjack
 	public boolean blackjack() {
 		boolean blackjackVar;
-		if (total == 21) {
+		if (handTotal == 21) {
 			blackjackVar = true;
 		} else {
 			blackjackVar = false;

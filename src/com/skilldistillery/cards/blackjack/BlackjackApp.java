@@ -17,10 +17,9 @@ public class BlackjackApp {
 		app.dealInitialHands();
 		app.checkPlayerForBlackJack();
 		app.checkDealerForBlackJack();
-		app.checkPlayerForBust();
-		app.checkDealerForBust();
 		app.playerDecide(sc);
-		app.checkPlayerForBust();
+//		app.checkPlayerForBust();
+//		app.checkDealerForBust();
 
 		sc.close();
 	}
@@ -49,17 +48,17 @@ public class BlackjackApp {
 		}
 	}
 
-	private void checkPlayerForBust() {
-		if (this.player.checkForBust()) {
-			System.out.println("You busted! Better luck next time ");
-		}
-	}
-
-	private void checkDealerForBust() {
-		if (this.dealer.checkForBlackjack()) {
-			System.out.println("The Dealer busted!! You win!!");
-		}
-	}
+//	private void checkPlayerForBust() {
+//		if (this.player.checkForBust()) {
+//			System.out.println("You busted! Better luck next time ");
+//		}
+//	}
+//
+//	private void checkDealerForBust() {
+//		if (this.dealer.checkForBlackjack()) {
+//			System.out.println("The Dealer busted!! You win!!");
+//		}
+//	}
 
 	private void playerDecide(Scanner sc) {
 		String answer = this.player.hitOrStand(sc, dealer.getDeck().dealCard());;
