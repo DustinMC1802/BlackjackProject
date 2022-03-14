@@ -4,6 +4,7 @@ import com.skilldistillery.cards.common.Deck;
 
 public class Blackjackpp {
 
+
 	public static void main(String[] args) {
 		Dealer dealer = new Dealer();
 		Player player = new Player();
@@ -11,8 +12,7 @@ public class Blackjackpp {
 		
 		dealer.shuffle(deck);
 		player.initialDeal(deck.dealCard(), deck.dealCard());
-		
-		
+		player.hitOrStay(deck.dealCard());
 			
 		}
 			

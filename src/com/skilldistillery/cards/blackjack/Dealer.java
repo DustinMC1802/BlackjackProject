@@ -14,6 +14,7 @@ public class Dealer {
 	}
 	// Deal Cards (dealCard)
 	public Card deal() {
+		System.out.println("Dealing");
 		return deck.dealCard();
 	}
 	
