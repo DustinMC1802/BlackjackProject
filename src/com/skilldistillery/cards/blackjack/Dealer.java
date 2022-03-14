@@ -1,5 +1,7 @@
 package com.skilldistillery.cards.blackjack;
 
+//import java.util.ArrayList;
+
 import com.skilldistillery.cards.common.Card;
 import com.skilldistillery.cards.common.Deck;
 
@@ -12,8 +14,8 @@ public class Dealer extends Player{
 //	public Dealer dealer = new Dealer();
 	
 	public Dealer() {
-		this.dealerHand = new BlackjackHand();
 		setDeck(new Deck());
+		this.dealerHand = new BlackjackHand();
 	}
 	// Shuffle Deck
 	public void shuffle(Deck deck) {
@@ -28,6 +30,7 @@ public class Dealer extends Player{
 		System.out.println("The Dealer deals themself: ");
 		this.dealerHand.addCard(dealtCard);
 		System.out.println("Card = face down");
+		System.out.println(dealtCard);
 		System.out.println("");
 	}
 	
@@ -39,14 +42,26 @@ public class Dealer extends Player{
 		System.out.println(dealtCard);
 		System.out.println("");
 	}
-
+	
 
 	// Must hit if card sum is < 17
-	public void hitOrStand(Card i) {
-		if(this.dealerHand.getHandValue(i) >= 17) {
-			
+	public int dealerDecider(Card i, Card dealtCard) {
+		int dealerTotal = this.dealerHand.calculateHandValue(i);
+		if(dealerTotal < 17) {
+			this.dealerHand.addCard(dealtCard);
+			System.out.println(dealtCard);
+			System.out.println(i);
+		} else if(dealerTotal >= 17) {
+			if (dealerTotal > 21) {
+				System.out.println(i);
+				System.out.println("The Dealer busted! You win!!");
+			} else if(dealerTotal == 21) {
+				System.out.println(i);
+				System.out.println("The dealer won. Better luck next time");
+			}
+//			System.out.println(this.dealerHand.getHandValue(dealtCard));
 		}
-
+		return dealerTotal;
 	}
 	
 	//Getters and Setters for the Deck

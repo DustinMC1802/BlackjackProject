@@ -1,23 +1,24 @@
 package com.skilldistillery.cards.blackjack;
 
+//import java.util.ArrayList;
+
 import com.skilldistillery.cards.common.Card;
 import com.skilldistillery.cards.common.Hand;
 
 public class BlackjackHand extends Hand {
+	private int handTotal;
 
-	public BlackjackHand() {
-	}
+//	public BlackjackHand() {
+//	}
 
-	private int handTotal = 0;
-	public boolean bust = false;
 	//Add the total of the cards in the hand
 	@Override
-	public int getHandValue(Card cardsInHand) {
-		int handAmount = getHandTotal();
+	public int calculateHandValue(Card cardsInHand) {
+		int handValue = 0;
 		for (Card card : this.cardsInHand) {
-			handAmount += card.getValue();
+			handValue += card.getValue();
 		}
-		return handAmount;
+		return handValue;
 		
 	}
 
@@ -25,20 +26,10 @@ public class BlackjackHand extends Hand {
 		return handTotal;
 	}
 
-	public void setHandTotal(int handTotal) {
-		this.handTotal = handTotal;
-	}
+//	public void setHandTotal(int handTotal) {
+//		this.handTotal = handTotal;
+//	}
 
-	// Determine if bust
-	public boolean bust() {
-		boolean bustVar;
-		if (handTotal >= 21) {
-			bustVar = true;
-		} else {
-			bustVar = false;
-		}
-		return bustVar;
-	}
 
 	// Determine if blackjack
 	public boolean blackjack() {

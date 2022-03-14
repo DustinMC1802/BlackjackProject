@@ -1,23 +1,31 @@
 package com.skilldistillery.cards.blackjack;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import com.skilldistillery.cards.common.Card;
+import com.skilldistillery.cards.common.Hand;
 
 public class BlackjackApp {
 
 	private Dealer dealer = new Dealer();
 	private Player player = new Player();
+	private BlackjackHand playerHand = new BlackjackHand();
 
 
 	public static void main(String[] args) {
 		BlackjackApp app = new BlackjackApp();
 
 		Scanner sc = new Scanner(System.in);
+		
 
 		app.shuffleDeck();
 		app.dealInitialHands();
 		app.checkPlayerForBlackJack();
 		app.checkDealerForBlackJack();
 		app.playerDecide(sc);
+		app.dealerDecision(i, dealtCard);
 //		app.checkPlayerForBust();
 //		app.checkDealerForBust();
 
@@ -61,12 +69,24 @@ public class BlackjackApp {
 //	}
 
 	private void playerDecide(Scanner sc) {
-		String answer = this.player.hitOrStand(sc, dealer.getDeck().dealCard());;
+		String answer = this.player.hitOrStand(sc, dealer.getDeck().dealCard());
 
 		while (answer.equals("H")) {
 			player.receiveCard(dealer.getDeck().dealCard());;
-			answer = this.player.hitOrStand(sc, dealer.getDeck().dealCard());;
+			answer = this.player.hitOrStand(sc, dealer.getDeck().dealCard());
 		}
+//		while (answer.equals("S")) {
+//			break;
+//		}
 
 	}
+	
+	private void dealerDecision(Card i, Card dealtCard) {
+		dealer.dealerDecider(dealer.getDeck().dealCard(), dealer.getDeck().dealCard());
+		}
+
+			
+		
+		
+	
 }

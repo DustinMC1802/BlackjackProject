@@ -18,7 +18,7 @@ public abstract class Hand {
 	}
 
 	// Abstract method to get the total value of the cards
-	public abstract int getHandValue(Card cardsInHand);
+	public abstract int calculateHandValue(Card cardsInHand);
 
 	// Clear the hand
 	public void clear() {
