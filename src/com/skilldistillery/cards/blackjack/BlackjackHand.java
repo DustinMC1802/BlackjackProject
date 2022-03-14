@@ -22,9 +22,9 @@ public class BlackjackHand extends Hand {
 		
 	}
 
-	public int getHandTotal() {
-		return handTotal;
-	}
+//	public int getHandTotal() {
+//		return handTotal;
+//	}
 
 //	public void setHandTotal(int handTotal) {
 //		this.handTotal = handTotal;
