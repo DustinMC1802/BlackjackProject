@@ -9,9 +9,10 @@ public class BlackjackHand extends Hand {
 
 	}
 
+	int total = 0;
+	//Add the total of the cards in the hand
 	@Override
 	public int getHandValue(Card cardsInHand) {
-		int total = 0;
 		
 		for (Card card : this.cardsInHand) {
 			total += card.getValue();
@@ -19,17 +20,27 @@ public class BlackjackHand extends Hand {
 		return total;
 	}
 
-	// Sum the values of the cards
-//	@Override
-//	public int getHandValue(Card cardsInHand) {
-//		for(int i = 0; i < BlackjackHand.size; i++) {
-//			
-//		}
-
-	// Display cards
-
 	// Determine if bust
+	public boolean bust() {
+		boolean bustVar;
+		if (total >= 21) {
+			bustVar = true;
+		} else {
+			bustVar = false;
+		}
+		return bustVar;
+	}
 
 	// Determine if blackjack
-
+	public boolean blackjack() {
+		boolean blackjackVar;
+		if (total >= 21) {
+			blackjackVar = true;
+		} else {
+			blackjackVar = false;
+		}
+		return blackjackVar;
+		
+	}
+	
 }

@@ -3,10 +3,15 @@ package com.skilldistillery.cards.blackjack;
 import com.skilldistillery.cards.common.Card;
 import com.skilldistillery.cards.common.Deck;
 
-public class Dealer {
+public class Dealer extends Player{
 
-	private Deck deck = new Deck();
+	//private Deck deck = new Deck();
 
+	private BlackjackHand dealerHand;
+	
+	public Dealer() {
+		dealerHand = new BlackjackHand();
+	}
 	// Shuffle Deck
 	public void shuffle(Deck deck) {
 		deck.shuffle();
@@ -15,26 +20,23 @@ public class Dealer {
 	}
 
 	// Deal Cards (dealCard)
-	public Card deal() {
-		System.out.println("Dealing");
-		return deck.dealCard();
-	}
-
-	// Finish Dealer's Hand
-	private BlackjackHand dealerHand;
-
-	public Dealer() {
-		dealerHand = new BlackjackHand();
-	}
-
-	public void initialDeal(Card i, Card j) {
+	public void initialDeal(Card dealtCard) {
 		System.out.println("");
 		System.out.println("The Dealer deals themself: ");
-		dealerHand.addCard(i);
-		dealerHand.addCard(j);
+		dealerHand.addCard(dealtCard);
 		System.out.println("Card = face down");
-		System.out.println(j);
+		System.out.println("");
 	}
+	
+	@Override
+	public void dealCard(Card dealtCard) {
+		System.out.println("");
+		System.out.println("The Dealer deals themself: ");
+		dealerHand.addCard(dealtCard);
+		System.out.println(dealtCard);
+		System.out.println("");
+	}
+
 
 	// Must hit if card sum is < 17
 	public void hitOrStay(Card i) {

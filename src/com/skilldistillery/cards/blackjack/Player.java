@@ -14,32 +14,45 @@ public class Player {
 
 	}
 
-	public void initialDeal(Card i, Card j) {
+	public void dealCard(Card dealtCard) {
 		System.out.println("You have been dealt: ");
-		playerHand.addCard(i);
-		playerHand.addCard(j);
-		System.out.println(i);
-		System.out.println(j);
+		playerHand.addCard(dealtCard);
+		System.out.println(dealtCard);
+//		if (playerHand.blackjack()) {
+//			System.out.println("You got a Blackjack!!");
+//			System.out.println("Let's see what the Dealer gets...");
+//		} else if (playerHand.bust()) {
+//			System.out.println("You busted! Better luck next time ");
+//		} else {
+//		}
 	}
 
 	// Decide to hit or stay
-	public void hitOrStay(Scanner sc, Card i) {
+	public String hitOrStand(Scanner sc, Card i) {
 		String hitInput = "";
 		System.out.println("Your total is currently " + playerHand.getHandValue(i));
 		System.out.println("Would you like to hit or stay?");
 		System.out.println("Press \"H\" to press or \"S\" to Stay");
 		hitInput = sc.next();
-		do {
-				System.out.println("You have been dealt: ");
-				playerHand.addCard(i);
-				System.out.println(i);
-				System.out.println("Your total is currently " + playerHand.getHandValue(i));
-				System.out.println("Would you like to hit again or stay?");
-				System.out.println("Press \"H\" to press or \"S\" to Stay");
-				hitInput = sc.next();
+		return hitInput;
 
-		} while (hitInput.equals("H"));
-
+	}
+	
+	public boolean checkForBlackjack() {
+		boolean check = false;
+		if (playerHand.blackjack()) {
+			check = true;
+			
+		} 
+		return check;
+	}
+		
+	public boolean checkForBust() {
+		boolean check = false;
+		if (playerHand.bust()) {
+			check = true;
+		}
+		return check;
 	}
 
 }

@@ -6,16 +6,16 @@ import java.util.List;
 public abstract class Hand {
 
 	// The hand will receive cards from the Deck and store them in a list
-	public List<Card> cardsInHand = new ArrayList<>();
+	protected List<Card> cardsInHand;
 
 	public Hand() {
 
 		this.cardsInHand = new ArrayList<>();
 	}
 
-	public void addCard(Card i) {
+	public void addCard(Card dealtCard) {
 
-		cardsInHand.add(i);
+		cardsInHand.add(dealtCard);
 	}
 
 	// Abstract method to get the total value of the cards
