@@ -11,8 +11,12 @@ public class BlackjackHand extends Hand {
 
 	@Override
 	public int getHandValue(Card cardsInHand) {
-		// TODO Auto-generated method stub
-		return 0;
+		int total = 0;
+		
+		for (Card card : this.cardsInHand) {
+			total += card.getValue();
+		}
+		return total;
 	}
 
 	// Sum the values of the cards
@@ -23,9 +27,9 @@ public class BlackjackHand extends Hand {
 //		}
 
 	// Display cards
-	
+
 	// Determine if bust
-	
+
 	// Determine if blackjack
 
 }
